@@ -1,6 +1,9 @@
 package hu.gde.runnersdemo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.ManyToAny;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +18,9 @@ public class RunnerEntity {
 
     @OneToMany(mappedBy = "runner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LapTimeEntity> laptimes = new ArrayList<>();
+
+    @OneToMany
+    private SponsorEntity sponsor;
 
     public RunnerEntity() {
     }
@@ -33,6 +39,10 @@ public class RunnerEntity {
 
     public long getHeight() {
         return height;
+    }
+
+    public SponsorEntity getSponsor() {
+        return sponsor;
     }
 
     public void setRunnerId(long runnerId) {
