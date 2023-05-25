@@ -61,6 +61,10 @@ public class RunnerEntity {
         this.height = height;
     }
 
+    public void setSponsor(SponsorEntity sponsor){
+        this.sponsor = sponsor;
+    }
+
     public List<LapTimeEntity> getLaptimes() {
         return laptimes;
     }

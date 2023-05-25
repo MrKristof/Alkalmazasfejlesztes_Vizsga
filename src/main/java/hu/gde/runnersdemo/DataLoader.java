@@ -16,10 +16,20 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        SponsorEntity sponsorEntity1 = new SponsorEntity();
+        sponsorEntity1.setSponsorName("Gyors");
+
+        SponsorEntity sponsorEntity2 = new SponsorEntity();
+        sponsorEntity2.setSponsorName("Villam");
+
+        SponsorEntity sponsorEntity3 = new SponsorEntity();
+        sponsorEntity3.setSponsorName("MindigNyer");
+
         RunnerEntity runnerEntity = new RunnerEntity();
         runnerEntity.setRunnerName("Tomi");
         runnerEntity.setAveragePace(310);
         runnerEntity.setHeight(180);
+        runnerEntity.setSponsor(sponsorEntity1);
 
         LapTimeEntity laptime1 = new LapTimeEntity();
         laptime1.setLapNumber(1);
@@ -40,6 +50,7 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity2.setRunnerName("Zsuzsi");
         runnerEntity2.setAveragePace(290);
         runnerEntity2.setHeight(170);
+        runnerEntity.setSponsor(sponsorEntity2);
 
         LapTimeEntity laptime3 = new LapTimeEntity();
         laptime3.setLapNumber(1);
@@ -60,6 +71,7 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity3.setRunnerName("Andras");
         runnerEntity3.setAveragePace(270);
         runnerEntity3.setHeight(187);
+        runnerEntity.setSponsor(sponsorEntity3);
 
         LapTimeEntity laptime5 = new LapTimeEntity();
         laptime5.setLapNumber(1);
