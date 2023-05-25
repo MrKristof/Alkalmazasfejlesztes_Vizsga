@@ -8,10 +8,12 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final RunnerRepository runnerRepository;
+    private final SponsorRepository sponsorRepository;
 
     @Autowired
-    public DataLoader(RunnerRepository runnerRepository) {
+    public DataLoader(RunnerRepository runnerRepository, SponsorRepository sponsorRepository) {
         this.runnerRepository = runnerRepository;
+        this.sponsorRepository = sponsorRepository;
     }
 
     @Override
@@ -24,6 +26,10 @@ public class DataLoader implements CommandLineRunner {
 
         SponsorEntity sponsorEntity3 = new SponsorEntity();
         sponsorEntity3.setSponsorName("MindigNyer");
+
+        sponsorRepository.save(sponsorEntity1);
+        sponsorRepository.save(sponsorEntity2);
+        sponsorRepository.save(sponsorEntity3);
 
         RunnerEntity runnerEntity = new RunnerEntity();
         runnerEntity.setRunnerName("Tomi");
@@ -50,7 +56,7 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity2.setRunnerName("Zsuzsi");
         runnerEntity2.setAveragePace(290);
         runnerEntity2.setHeight(170);
-        runnerEntity.setSponsor(sponsorEntity2);
+        runnerEntity2.setSponsor(sponsorEntity2);
 
         LapTimeEntity laptime3 = new LapTimeEntity();
         laptime3.setLapNumber(1);
@@ -71,7 +77,7 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity3.setRunnerName("Andras");
         runnerEntity3.setAveragePace(270);
         runnerEntity3.setHeight(187);
-        runnerEntity.setSponsor(sponsorEntity3);
+        runnerEntity3.setSponsor(sponsorEntity3);
 
         LapTimeEntity laptime5 = new LapTimeEntity();
         laptime5.setLapNumber(1);
