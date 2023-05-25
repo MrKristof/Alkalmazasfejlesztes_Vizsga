@@ -74,7 +74,7 @@ public class RunnerRestController {
             this.lapTimeSeconds = lapTimeSeconds;
         }
     }
-    @GetMapping("/highesttrunner")
+    @GetMapping("/highestrunner")
     public String getHeightestRunner(){
         List<RunnerEntity> runners = runnerRepository.findAll();
 
