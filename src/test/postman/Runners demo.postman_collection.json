@@ -191,7 +191,14 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "getHighest",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
-
 }
