@@ -72,4 +72,19 @@ public class RunnerRestController {
             this.lapTimeSeconds = lapTimeSeconds;
         }
     }
+    @GetMapping("/highesttrunner")
+    public String getHeightestRunner(){
+        List<RunnerEntity> runners = runnerRepository.findAll();
+
+        if(runners.size() > 0){
+            RunnerEntity highest = runners.get(0);
+            for (RunnerEntity runner : runners) {
+                if (runner.getHeight() > highest.getHeight()){
+                    highest = runner;
+                }
+            }
+            return highest.getRunnerName();
+        }
+        return "";
+    }
 }
