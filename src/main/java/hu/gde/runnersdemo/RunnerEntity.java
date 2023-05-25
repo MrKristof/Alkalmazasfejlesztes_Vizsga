@@ -19,7 +19,8 @@ public class RunnerEntity {
     @OneToMany(mappedBy = "runner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LapTimeEntity> laptimes = new ArrayList<>();
 
-    @OneToMany
+    @JsonIgnore
+    @ManyToOne
     private SponsorEntity sponsor;
 
     public RunnerEntity() {

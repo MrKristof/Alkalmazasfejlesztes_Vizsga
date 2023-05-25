@@ -18,6 +18,9 @@ public class RunnerController {
     private RunnerRepository runnerRepository;
     @Autowired
     private LapTimeRepository lapTimeRepository;
+    @Autowired
+    private RunnerService runnerService;
+
     @GetMapping("/runners")
     public String getAllRunners(Model model) {
         List<RunnerEntity> runners = runnerRepository.findAll();
@@ -27,7 +30,7 @@ public class RunnerController {
         }
         double avg =(double)sum/ (double)runners.size();
         model.addAttribute("runners", runners);
-        model.addAttribute("averageHeight",avg);
+        model.addAttribute("averageHeight",runnerService.getAverageHeight());
 
         String url = "http://localhost:8080/api/v1/runner/1/highesttrunner";
         RestTemplate restTemplate = new RestTemplate();
